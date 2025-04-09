@@ -17,11 +17,14 @@ function App() {
     }
     try {
       axios
-        .post("http://feedback-n668.onrender.com/api/v1/user/submit-feedback", {
-          senderFullName: fullName,
-          email: email,
-          feedbackContent: feedback,
-        })
+        .post(
+          "https://feedback-n668.onrender.com/api/v1/user/submit-feedback",
+          {
+            senderFullName: fullName,
+            email: email,
+            feedbackContent: feedback,
+          }
+        )
         .then((res) => {
           console.log(res.data.data);
           setResponse(res.data.data);
@@ -33,7 +36,7 @@ function App() {
   const fetchAllData = () => {
     try {
       axios
-        .get("http://feedback-n668.onrender.com/api/v1/admin/feedbacks")
+        .get("https://feedback-n668.onrender.com/api/v1/admin/feedbacks")
         .then((res) => {
           setAllFeedbacks(res.data.data);
         });
