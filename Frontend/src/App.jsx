@@ -17,7 +17,7 @@ function App() {
     }
     try {
       axios
-        .post("http://localhost:8000/api/v1/user/submit-feedback", {
+        .post("http://feedback-n668.onrender.com/api/v1/user/submit-feedback", {
           senderFullName: fullName,
           email: email,
           feedbackContent: feedback,
@@ -32,9 +32,11 @@ function App() {
   };
   const fetchAllData = () => {
     try {
-      axios.get("http://localhost:8000/api/v1/admin/feedbacks").then((res) => {
-        setAllFeedbacks(res.data.data);
-      });
+      axios
+        .get("http://feedback-n668.onrender.com/api/v1/admin/feedbacks")
+        .then((res) => {
+          setAllFeedbacks(res.data.data);
+        });
     } catch (error) {
       setError(error.message);
     }
