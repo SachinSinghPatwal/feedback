@@ -67,7 +67,7 @@ function App() {
           }
           `}
       </style>
-      <div className="h-[100svh] sm:overflow-hidden">
+      <div className={`h-[100svh] ${!toggle ? "sm:overflow-hidden" : ""}`}>
         <header className="grid grid-flow-col sm:mx-[2rem] mt-[1px] items-center justify-between">
           <h1 className="w-fit sm:text-[20px] text-[15px] font-semibold dark:text-gray-300">
             FeedBack Collector
@@ -175,20 +175,22 @@ function App() {
             >
               Get All FeedBacks
             </button>
-            <div className="grid gap-[1rem] mt-[3rem] ">
+            <div className="grid mt-[3rem] ">
               {allFeedbacks.map((eachFeed, index) => (
                 <div
                   key={`${eachFeed.feedbackContent}${index}`}
                   className="border-[1px] dark:border-gray-500 rounded-[5px] sm:p-4 py-4 sm:mx-0 mx-3 px-2
                   hover:scale-[1.1] transition-all duration-200 dark:text-gray-300
-                  "
+                  mb-[2rem]"
                 >
                   <h1>{`By : ${eachFeed.senderFullName}`}</h1>
                   <h1>{`Through : ${eachFeed.email}`}</h1>
                   <p>{`sended : ${eachFeed.feedbackContent}`}</p>
                   <p>{`time : ${new Date(eachFeed.createdAt).toLocaleString(
                     "en-IN",
-                    { timeZone: "Asia/Kolkata" }
+                    {
+                      timeZone: "Asia/Kolkata",
+                    }
                   )} ~ ( IST )`}</p>
                 </div>
               ))}
