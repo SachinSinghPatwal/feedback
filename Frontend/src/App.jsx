@@ -181,6 +181,10 @@ function App() {
                   <h1>{`By : ${eachFeed.senderFullName}`}</h1>
                   <h1>{`Through : ${eachFeed.email}`}</h1>
                   <p>{`sended : ${eachFeed.feedbackContent}`}</p>
+                  <p>{`time : ${new Date(eachFeed.createdAt).toLocaleString(
+                    "en-IN",
+                    { timeZone: "Asia/Kolkata" }
+                  )} ~ ( IST )`}</p>
                 </div>
               ))}
             </div>
